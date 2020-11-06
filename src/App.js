@@ -2,6 +2,8 @@ import React, { useEffect,useState } from 'react';
 import './App.css';
 import axios from "axios"
 import Character from './components/Character';
+import styled from "styled-components"
+
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -16,31 +18,41 @@ const App = () => {
     axios
     .get("https://rickandmortyapi.com/api/character/")
     .then((res) => {
-      // console.log(res.data.results)
-      setCharacterData(res.data.results.map(charact => {
-        // console.log(charact)
-        return charact
-      }))
-      return characterData
+      setCharacterData(res.data.results)
     })
     .catch((err) => {
       debugger
     })
   },[])
-  
+
   console.log(characterData)
 
   return (
     <div className="App">
+      <StyledDiv>
       <h1 className="Header">Characters</h1>
-    <Character 
-    id = {characterData.id}
-    name = {characterData.name}
-    image = {characterData.image}
-    />
-      <h2>hello</h2>
+      </StyledDiv>
+      {characterData.map((charact,ixd) => {
+        return (<Character 
+          name = {charact.name}
+          image = {charact.image}
+          species = {charact.species}
+          gender = {charact.gender}
+          location = {charact.location.name}
+          origin = {charact.origin.name}
+          key = {ixd}
+        />)
+      })}
     </div>
   );
 }
+
+const StyledDiv = styled.div`
+padding:2%;
+text-align: start;
+text-decoration:underline;
+margin-left: 7%;
+font-size: 2rem;
+`
 
 export default App;
