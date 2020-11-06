@@ -11,10 +11,10 @@ function Character(props) {
             <H1Style>{name}</H1Style>
             <StyleImg src = {image} alt ="image"/>
             <InfoDiv>
-            <h2>Species: {species}</h2>
-            <h2>Gender: {gender}</h2>
-            <h2>Location: {location}</h2>
-            <h2>From: {origin}</h2>
+            <h2>SPECIES: {species}</h2>
+            <h2>GENDER: {gender}</h2>
+            <h2>LOCATION: {location}</h2>
+            <h2>FROM: {origin}</h2>
             </InfoDiv>
         </div>
         
@@ -22,14 +22,15 @@ function Character(props) {
 }
 const H1Style = styled.h1`
 text-align: center;
-border:solid black ;
-/* margin-left: 13%; */
+border: solid lightgreen 7px;
+border-radius:50%;
+padding:1%;
 margin-left: 27%;
 margin-bottom:-5%;
-width: 20%;
+width: 15%;
 `
 const StyleImg = styled.img`
-border : solid white;
+/* border : solid lightgreen 7px; */
 border-radius:10%;
 margin-left: 10%;
 display:flex;
