@@ -17,10 +17,11 @@ const App = () => {
     .get("https://rickandmortyapi.com/api/character/")
     .then((res) => {
       // console.log(res.data.results)
-      setCharacterData(res.data.results)
+      setCharacterData(res.data.results.map(charact => {
+        // console.log(charact)
+        return charact
+      }))
       return characterData
-      
-      
     })
     .catch((err) => {
       debugger
@@ -35,9 +36,9 @@ const App = () => {
     <Character 
     id = {characterData.id}
     name = {characterData.name}
-
-    
+    image = {characterData.image}
     />
+      <h2>hello</h2>
     </div>
   );
 }
