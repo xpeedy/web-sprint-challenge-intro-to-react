@@ -21,6 +21,7 @@ const App = () => {
       setCharacterData(res.data.results)
     })
     .catch((err) => {
+      console.log(err)
       debugger
     })
   },[])
@@ -40,6 +41,7 @@ const App = () => {
           gender = {charact.gender}
           location = {charact.location.name}
           origin = {charact.origin.name}
+          status = {charact.status}
           key = {ixd}
         />)
       })}
